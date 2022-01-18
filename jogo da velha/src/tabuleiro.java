@@ -8,13 +8,13 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
 public class tabuleiro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField txt_placar_X;
 	private JTextField txt_placar_O;
@@ -30,15 +30,16 @@ public class tabuleiro extends JFrame {
 	private int cliques = 0, vitorias_time_X = 0, vitorias_time_O = 0, jogar_novamente = -2;
 	private boolean[] bottom_pressed = {false, false, false, false, false, false, false, false, false}; // este vetor controla se o botao foi pressionado;
 	private boolean[] victory_fail = {false, false, false, false, false, false, false, false, false}; // este vector controla se as chances de victoria aconteceram, se nenhuma delas acontecer, o vetor ficara todo em true ao decorrer do programa e entrara em um if que controla se deu Velha;
-	public static void main(String[] args) {
-				try {
-					tabuleiro frame = new tabuleiro();
-					frame.setLocationRelativeTo(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Algo de errado aconteceu! Tente abrir o aplicativo novamente.", null, JOptionPane.ERROR_MESSAGE);
-				}
+	public static void main(String[] args) {	
+		try {
+				tabuleiro frame = new tabuleiro();
+				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
+			
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Algo de errado aconteceu! Tente abrir o aplicativo novamente.", null, JOptionPane.ERROR_MESSAGE);
 			}
+	}
 
 	public tabuleiro() {
 		setResizable(false);
@@ -344,7 +345,7 @@ public class tabuleiro extends JFrame {
 		if((victory_fail[0] && victory_fail[1] && victory_fail[2] && victory_fail[3] && victory_fail[4] && victory_fail[5] && victory_fail[6] && victory_fail[7])) {
 			jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Deu velha!", JOptionPane.YES_NO_OPTION);
 		}
-		nova_partida();
+		nova_partida(vitorias_time_X, vitorias_time_O);
 	}
 	
 	private void vitoria(String vencedor) { // verificador de qual time ganhou;
@@ -358,7 +359,8 @@ public class tabuleiro extends JFrame {
 		}
 	}
 	
-	private void nova_partida() {
+	private void nova_partida(int placarX, int placarO) {
+		int salvar = -2;
 		if(jogar_novamente == 0) {
 			casa1.setText(""); //limpando o tabuleiro;
 			casa2.setText("");
@@ -376,6 +378,10 @@ public class tabuleiro extends JFrame {
 				victory_fail[i] = false;
 			}	
 		}else if(jogar_novamente == 1 || jogar_novamente == -1) {
+			salvar = JOptionPane.showConfirmDialog(null, "Deseja salvar o placar?", "Salvar o Placar.", JOptionPane.YES_NO_OPTION);
+			if(salvar == 0) {
+				Game_Data.write(placarX, placarO);
+			}
 			System.exit(0);
 		}
 	}
