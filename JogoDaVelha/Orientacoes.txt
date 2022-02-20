@@ -1,0 +1,13 @@
+----------------------------------------------
+    Anotações para fins de orientação:
+----------------------------------------------
+
+- As casas, ou botoes, seguem na ordem vertical, casa1 o primeiro da esquerda, casa2, logo abaixo:
+EX:
+casa1 | casa4 | casa7
+casa2 | casa5 | casa8
+casa3 | casa6 | casa9
+
+- O metodo nextInt(); da classe Random, utilizada para para gerar um numero randomico para o primeiro movimento, gera um numero aleatorio de 0 até o numero especificado, nao incluido na lista
+Ex: 
+number.nextInt(9); irá gerar 8 como maior numero possivel, o 9 nao está incluido no sorteio randomico.
