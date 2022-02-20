@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -49,7 +50,7 @@ public class tabuleiro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JDesktopPane desktopPane = new JDesktopPane();
 		contentPane.add(desktopPane, BorderLayout.CENTER);
 
@@ -62,11 +63,13 @@ public class tabuleiro extends JFrame {
 					casa1.setText("X");
 					cliques++;
 					bottom_pressed[0] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[0] == false)) {
 					casa1.setText("O");
 					cliques++;
-					bottom_pressed[0] = true;	
+					bottom_pressed[0] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -81,11 +84,13 @@ public class tabuleiro extends JFrame {
 					casa2.setText("X");
 					cliques++;
 					bottom_pressed[1] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[1] == false)) {
 					casa2.setText("O");
 					cliques++;
 					bottom_pressed[1] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -100,11 +105,13 @@ public class tabuleiro extends JFrame {
 					casa3.setText("X");
 					cliques++;
 					bottom_pressed[2] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[2] == false)) {
 					casa3.setText("O");
 					cliques++;
 					bottom_pressed[2] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -119,11 +126,13 @@ public class tabuleiro extends JFrame {
 					casa4.setText("X");
 					cliques++;
 					bottom_pressed[3] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[3] == false)) {
 					casa4.setText("O");
 					cliques++;
 					bottom_pressed[3] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -138,11 +147,14 @@ public class tabuleiro extends JFrame {
 					casa5.setText("X");
 					cliques++;
 					bottom_pressed[4] = true;
+					Sons.som_botao();
+
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[4] == false)) {
 					casa5.setText("O");
 					cliques++;
 					bottom_pressed[4] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -157,11 +169,13 @@ public class tabuleiro extends JFrame {
 					casa6.setText("X");
 					cliques++;
 					bottom_pressed[5] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[5] == false)) {
 					casa6.setText("O");
 					cliques++;
 					bottom_pressed[5] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -176,11 +190,13 @@ public class tabuleiro extends JFrame {
 					casa7.setText("X");
 					cliques++;
 					bottom_pressed[6] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[6] == false)) {
 					casa7.setText("O");
 					cliques++;
 					bottom_pressed[6] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -195,11 +211,13 @@ public class tabuleiro extends JFrame {
 					casa8.setText("X");
 					cliques++;
 					bottom_pressed[7] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[7] == false)) {
 					casa8.setText("O");
 					cliques++;
 					bottom_pressed[7] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -214,11 +232,13 @@ public class tabuleiro extends JFrame {
 					casa9.setText("X");
 					cliques++;
 					bottom_pressed[8] = true;
+					Sons.som_botao();
 				}
 				else if (((cliques % 2) == 1) && (bottom_pressed[8] == false)) {
 					casa9.setText("O");
 					cliques++;
 					bottom_pressed[8] = true;
+					Sons.som_botao();
 				}
 				verifica_vencedor();
 			}
@@ -266,7 +286,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa1.getText(); c2 = casa4.getText(); c3 = casa7.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[0] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[0] = true;
@@ -276,7 +296,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa2.getText(); c2 = casa5.getText(); c3 = casa8.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[1] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[1] = true;
@@ -286,7 +306,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa3.getText(); c2 = casa6.getText(); c3 = casa9.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[2] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[2] = true;
@@ -296,7 +316,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa1.getText(); c2 = casa2.getText(); c3 = casa3.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[3] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[3] = true;
@@ -306,7 +326,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa4.getText(); c2 = casa5.getText(); c3 = casa6.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[4] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[4] = true;
@@ -316,7 +336,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa7.getText(); c2 = casa8.getText(); c3 = casa9.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[5] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[5] = true;
@@ -326,7 +346,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa1.getText(); c2 = casa5.getText(); c3 = casa9.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[6] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[6] = true;
@@ -336,7 +356,7 @@ public class tabuleiro extends JFrame {
 			c1 = casa7.getText(); c2 = casa5.getText(); c3 = casa3.getText();
 			if(c1.equals(c2) && c2.equals(c3)) {
 				vitoria(c1);
-				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabéns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
+				jogar_novamente = JOptionPane.showConfirmDialog(null, "Deseja jogar novamente?", "Parabï¿½ns! O time " + c1 + " venceu!", JOptionPane.YES_NO_OPTION);
 				victory_fail[7] = false; // controlador para saber se deu velha;
 			}else {
 				victory_fail[7] = true;
@@ -373,7 +393,7 @@ public class tabuleiro extends JFrame {
 			casa9.setText("");
 			jogar_novamente = -2; // resetando a opcao de jogar novamente
 			cliques = 0;
-			for(int i = 0; i < 9; i++) { // resetando os valores novamente para o padrão;
+			for(int i = 0; i < 9; i++) { // resetando os valores novamente para o padrï¿½o;
 				bottom_pressed[i] = false;
 				victory_fail[i] = false;
 			}	
