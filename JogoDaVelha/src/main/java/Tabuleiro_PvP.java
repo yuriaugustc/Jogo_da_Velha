@@ -33,8 +33,8 @@ public class Tabuleiro_PvP extends JFrame {
     JButton casa8 = new JButton();
     JButton casa9 = new JButton();
     private int cliques = 0, vitorias_time_X = 0, vitorias_time_O = 0, jogar_novamente = -2;
-    private boolean[] bottom_pressed = {false, false, false, false, false, false, false, false, false}; // este vetor controla se o botao foi pressionado;
-    private boolean[] victory_fail = {false, false, false, false, false, false, false, false, false}; // este vector controla se as chances de victoria aconteceram, se nenhuma delas acontecer, o vetor ficara todo em true ao decorrer do programa e entrara em um if que controla se deu Velha;
+    private final boolean[] bottom_pressed = {false, false, false, false, false, false, false, false, false}; // este vetor controla se o botao foi pressionado;
+    private final boolean[] victory_fail = {false, false, false, false, false, false, false, false, false}; // este vector controla se as chances de victoria aconteceram, se nenhuma delas acontecer, o vetor ficara todo em true ao decorrer do programa e entrara em um if que controla se deu Velha;
 
     public Tabuleiro_PvP() {
         setResizable(false);
@@ -312,7 +312,7 @@ public class Tabuleiro_PvP extends JFrame {
     }
 
     private void verifica_vencedor() {
-        String c1, c2, c3;
+        String c1 = null, c2 = null, c3 = null;
         if(bottom_pressed[0] && bottom_pressed[3] && bottom_pressed[6]) {
             c1 = casa1.getText(); c2 = casa4.getText(); c3 = casa7.getText();
             if(c1.equals(c2) && c2.equals(c3)) {

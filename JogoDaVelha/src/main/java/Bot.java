@@ -275,7 +275,7 @@ public class Bot {
                 }
             }// if caso o first_move tenha sido na casa7;
         }//else
-        return -2; // como os is estão encadeados, na logica do bot o return virá do Else, então os ifs estao sem return e o NetBeans acha que todo if deve ter um return;
+        return -2; // o ultimo if de cada if encadeado está sem um else, por isso o java pede um return ao final;
     }
     
     public int regular_level(){ //bot faz apenas uma estrategia, mas se torna mediano por tentar sempre evitar as vitorias do player, sua fraqueza são armadilhas com dois caminhos de vitoria;
@@ -346,13 +346,49 @@ public class Bot {
             return first_move; // caso ainda tenho ocorrido o first_move;
         }
         else{ // caso já tenha ocorrido o first_move, o bot dará procedimento nas sequencias de jogadas, tentando uma alternativa de vitoria;
+            int j = attack();
+            if(j != -1){
+                return j;
+            }
             int i = defense();
             if(i != -1){
                 return i;
             }
-            int j = attack();
-            if(j != -1){
-                return j;
+            if(team_choosed[0] == 'O'){
+                if(!bottom_choosed[1] && !bottom_choosed[2]){
+                    return 2;
+                }else if(!bottom_choosed[4] && !bottom_choosed[8]){
+                    return 8;
+                }else if(!bottom_choosed[3] && !bottom_choosed[6]){
+                    return 6;
+                }
+            }
+            if(team_choosed[2] == 'O'){
+                if(!bottom_choosed[1] && !bottom_choosed[0]){
+                    return 0;
+                }else if(!bottom_choosed[4] && !bottom_choosed[6]){
+                    return 8;
+                }else if(!bottom_choosed[5] && !bottom_choosed[8]){
+                    return 6;
+                }
+            }
+            if(team_choosed[6] == 'O'){
+                if(!bottom_choosed[3] && !bottom_choosed[0]){
+                    return 0;
+                }else if(!bottom_choosed[4] && !bottom_choosed[2]){
+                    return 2;
+                }else if(!bottom_choosed[7] && !bottom_choosed[8]){
+                    return 8;
+                }
+            }
+            if(team_choosed[8] == 'O'){
+                if(!bottom_choosed[7] && !bottom_choosed[6]){
+                    return 6;
+                }else if(!bottom_choosed[4] && !bottom_choosed[0]){
+                    return 0;
+                }else if(!bottom_choosed[5] && !bottom_choosed[2]){
+                    return 2;
+                }
             }
             if(bottom_choosed[0]){ // if caso o first_move tenha sido na casa1;
                 if(bottom_choosed[2]){

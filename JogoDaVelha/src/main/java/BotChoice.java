@@ -5,11 +5,11 @@ public class BotChoice extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     public BotChoice(){
 
-        choice = new PanelBackground();
+        choice = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnBotFacil = new javax.swing.JButton();
-        btnBotMedio = new javax.swing.JButton();
         btnBotDificil = new javax.swing.JButton();
+        btnBotMedio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/icon.png"));
@@ -20,7 +20,7 @@ public class BotChoice extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(410, 310));
 
-        choice.setImgBackground(new javax.swing.ImageIcon("img/background.png"));
+        choice.setBackground(new java.awt.Color(255, 255, 255));
         
         lblTitle.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         lblTitle.setText("Por favor escolha um nível de dificuldade:");
@@ -34,18 +34,18 @@ public class BotChoice extends javax.swing.JFrame {
             }
         });
 
-        btnBotMedio.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnBotMedio.setText("Difícil");
-        btnBotMedio.addActionListener(new java.awt.event.ActionListener() {
+        btnBotDificil.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnBotDificil.setText("Difícil");
+        btnBotDificil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBotDificilActionPerformed(evt);
                 dispose();
             }
         });
 
-        btnBotDificil.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnBotDificil.setText("Médio");
-        btnBotDificil.addActionListener(new java.awt.event.ActionListener() {
+        btnBotMedio.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnBotMedio.setText("Médio");
+        btnBotMedio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBotMedioActionPerformed(evt);
                 dispose();
@@ -59,8 +59,8 @@ public class BotChoice extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, choiceLayout.createSequentialGroup()
                 .addGap(0, 83, Short.MAX_VALUE)
                 .addGroup(choiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBotMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBotDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBotMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBotFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(choiceLayout.createSequentialGroup()
@@ -76,9 +76,9 @@ public class BotChoice extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnBotFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBotDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnBotMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBotDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -120,10 +120,10 @@ public class BotChoice extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBotDificilActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private final javax.swing.JButton btnBotDificil;
-    private final javax.swing.JButton btnBotFacil;
-    private final javax.swing.JButton btnBotMedio;
-    private final PanelBackground choice;
-    private final javax.swing.JLabel lblTitle;
+    private javax.swing.JButton btnBotMedio;
+    private javax.swing.JButton btnBotFacil;
+    private javax.swing.JButton btnBotDificil;
+    private javax.swing.JPanel choice;
+    private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

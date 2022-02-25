@@ -29,7 +29,7 @@ public class Game_Data{
     }
     public static void writePvB(int valorX, int valorO, String level){
         try {
-                FileWriter File = new FileWriter("Placar_PvB_level_"+ level + DataPlacar() + ".txt");
+                FileWriter File = new FileWriter("Placar_PvB_level_"+ level + "_" + DataPlacar() + ".txt");
                 PrintWriter Writer = new PrintWriter(File);
                 Writer.printf("-----------------------------------\n");
                 Writer.printf("        Dados da partida:          \n");

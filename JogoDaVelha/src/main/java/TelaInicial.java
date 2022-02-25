@@ -1,17 +1,16 @@
 
 public class TelaInicial extends javax.swing.JFrame {
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     public TelaInicial(){
         
-        frame = new PanelBackground();
+        frame1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnPvB = new javax.swing.JButton();
         btnPvP = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         lblVersion = new javax.swing.JLabel();
-        
-        frame.setImgBackground(new javax.swing.ImageIcon("img/background.png"));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo da Velha");
         setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/icon.png"));
@@ -23,40 +22,35 @@ public class TelaInicial extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(410, 310));
         
-        lblTitle.setFont(new java.awt.Font("Times New Roman", java.awt.Font.BOLD, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
         lblTitle.setText("Bem Vindo ao Jogo da Velha!");
 
         btnPvB.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPvB.setText("Um Jogador");
-        btnPvB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPvBActionPerformed(evt);
-                dispose();
-            }
+        btnPvB.addActionListener((java.awt.event.ActionEvent evt) -> {
+            btnPvBActionPerformed(evt);
+            dispose();
         });
 
         btnPvP.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPvP.setText("Dois Jogadores");
-        btnPvP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPvPActionPerformed(evt);
-                dispose();
-            }
+        btnPvP.addActionListener((java.awt.event.ActionEvent evt) -> {
+            btnPvPActionPerformed(evt);
+            dispose();
         });
 
         btnExit.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnExit.setText("Sair");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
+        btnExit.addActionListener((java.awt.event.ActionEvent evt) -> {
+            btnExitActionPerformed(evt);
+            dispose();
         });
 
-        lblVersion.setFont(new java.awt.Font("Bookman Old Style", java.awt.Font.BOLD, 12)); // NOI18N
-        lblVersion.setText("v1.0.3");
+        lblVersion.setFont(new java.awt.Font("Bookman Old Style", 2, 12)); // NOI18N
+        lblVersion.setText("v1.0.2");
         
-        javax.swing.GroupLayout frame1Layout = new javax.swing.GroupLayout(frame);
-        frame.setLayout(frame1Layout);
+        javax.swing.GroupLayout frame1Layout = new javax.swing.GroupLayout(frame1);
+        frame1.setLayout(frame1Layout);
         frame1Layout.setHorizontalGroup(
             frame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(frame1Layout.createSequentialGroup()
@@ -95,11 +89,11 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(frame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(frame1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(frame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(frame1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -123,6 +117,7 @@ public class TelaInicial extends javax.swing.JFrame {
      
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 TelaInicial frame = new TelaInicial();
                 frame.setVisible(true);
@@ -135,9 +130,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private final javax.swing.JButton btnExit;
     private final javax.swing.JButton btnPvB;
     private final javax.swing.JButton btnPvP;
-    private final PanelBackground frame;
+    private final javax.swing.JPanel frame1;
     private final javax.swing.JLabel lblTitle;
     private final javax.swing.JLabel lblVersion;
     // End of variables declaration//GEN-END:variables
-    
 }

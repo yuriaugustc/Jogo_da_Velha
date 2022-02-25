@@ -33,7 +33,7 @@ public class Tabuleiro_PvB extends JFrame {
     JButton casa8 = new JButton();
     JButton casa9 = new JButton();
     private int vitorias_time_X = 0, vitorias_time_O = 0, jogar_novamente = -2;
-    private boolean[] bottom_pressed = {false, false, false, false, false, false, false, false, false}; // este vetor controla se o botao foi pressionado;
+    private final boolean[] bottom_pressed = {false, false, false, false, false, false, false, false, false}; // este vetor controla se o botao foi pressionado;
     private final boolean[] victory_fail = {false, false, false, false, false, false, false, false, false}; // este vector controla se as chances de victoria aconteceram, se nenhuma delas acontecer, o vetor ficara todo em true ao decorrer do programa e entrara em um if que controla se deu Velha;
     Bot bot = new Bot();
     
@@ -56,10 +56,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa1);
         casa1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[0]){
-                    setChoice(0);
-                    bottom_pressed[0] = true;
-                }
+                setChoice(0);
             }
         });
 
@@ -68,10 +65,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa2);
         casa2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[1]){
-                    setChoice(1);
-                    bottom_pressed[1] = true;
-                }
+                setChoice(1);
             }
         });
 
@@ -80,10 +74,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa3);
         casa3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[2]){
-                    setChoice(2);
-                    bottom_pressed[2] = true;
-                }
+                setChoice(2);
             }
         });
 
@@ -92,10 +83,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa4);
         casa4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[3]){
-                    setChoice(3);
-                    bottom_pressed[3] = true;
-                }
+                setChoice(3);
             }
         });
 
@@ -104,10 +92,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa5);
         casa5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[4]){
-                    setChoice(4);
-                    bottom_pressed[4] = true;
-                }
+                setChoice(4);
             }
         });
 
@@ -116,10 +101,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa6);
         casa6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[5]){
-                    setChoice(5);
-                    bottom_pressed[5] = true;
-                }
+                setChoice(5);
             }
         });
 
@@ -128,10 +110,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa7);
         casa7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[6]){
-                    setChoice(6);
-                    bottom_pressed[6] = true;
-                }
+                setChoice(6);
             }
         });
 
@@ -140,10 +119,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa8);
         casa8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[7]){
-                    setChoice(7);
-                    bottom_pressed[7] = true;
-                }
+                setChoice(7);
             }
         });
 
@@ -152,10 +128,7 @@ public class Tabuleiro_PvB extends JFrame {
         desktopPane.add(casa9);
         casa9.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!bottom_pressed[8]){
-                    setChoice(8);
-                    bottom_pressed[8] = true;
-                }
+                setChoice(8);
             }
         });
         
@@ -339,27 +312,29 @@ public class Tabuleiro_PvB extends JFrame {
     }
     
     public void setChoice(int i){
-        switch(i){
-            case 0 -> casa1.setText("X");
-            case 1 -> casa2.setText("X");
-            case 2 -> casa3.setText("X");
-            case 3 -> casa4.setText("X");
-            case 4 -> casa5.setText("X");
-            case 5 -> casa6.setText("X");
-            case 6 -> casa7.setText("X");
-            case 7 -> casa8.setText("X");
-            case 8 -> casa9.setText("X");
-            default -> {}
+        if(!bottom_pressed[i]){
+            switch(i){
+                case 0 -> casa1.setText("X");
+                case 1 -> casa2.setText("X");
+                case 2 -> casa3.setText("X");
+                case 3 -> casa4.setText("X");
+                case 4 -> casa5.setText("X");
+                case 5 -> casa6.setText("X");
+                case 6 -> casa7.setText("X");
+                case 7 -> casa8.setText("X");
+                case 8 -> casa9.setText("X");
+                default -> {}
+            }
+            lblTittle.setText("Turno do time O !");
+            bottom_pressed[i] = true;
+            Sons.som_botao();
+            boolean bool = verifica_vencedor();
+            if(!bool){ // se o usuario nao ganhar, o bot faz a jogada. (sem isso, quando o usuario ganha, o proximo movimento do bot vai para a nova partida); 
+                AnalisaTabuleiro();
+                BotChoice();
+            }
         }
-        lblTittle.setText("Turno do time O !");
-        bottom_pressed[i] = true;
-        Sons.som_botao();
-        boolean bool = verifica_vencedor();
-        if(!bool){ // se o usuario nao ganhar, o bot faz a jogada. (sem isso, quando o usuario ganha, o proximo movimento do bot vai para a nova partida); 
-            AnalisaTabuleiro();
-            BotChoice();
-        }
-   }
+    }
     
     public void BotChoice(){
         int i = bot.BotTime();
